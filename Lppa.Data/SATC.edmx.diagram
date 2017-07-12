@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48d0517a91aa4de1a0469cbc37e38f5f" Name="Diagram1">
+        <EntityTypeShape EntityType="SATCModel.ClienteTitular" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATCModel.Empleado" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATCModel.HistoricoTarjetasDeCredito" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATCModel.TarjetaDeCredito" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="SATCModel.FK_ClienteTitular_ClienteTitular" ManuallyRouted="false" />
+        <AssociationConnector Association="SATCModel.FK_TarjetaDeCredito_ClienteTitular" ManuallyRouted="false" />
+        <AssociationConnector Association="SATCModel.FK_HistoricoTarjetasDeCredito_TarjetaDeCredito" ManuallyRouted="false" />
+        <AssociationConnector Association="SATCModel.FK_TarjetaDeCredito_TarjetaDeCredito" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
