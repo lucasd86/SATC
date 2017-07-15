@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "SolicitarTarjeta";
+}
+
+<html>
+<head>
+    <script src="~/Scripts/Validaciones.js"></script>
+    <script src="~/Scripts/enviar.js"></script>
+</head>
+<body>
+    <!--Ver esto del FORM -->
+    <!--<form action="/AltaSolicitud/Create" method="post">-->
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="apellidoTitular">Apellido:</label>
+                <input type="text" required class="form-control" id="apellidoTitular">
+            </div>
+            <div class="col-sm-6">
+                <label for="nombreTitular">Nombre:</label>
+                <input type="text" required class="form-control" id="nombreTitular">
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="fechaNacimiento">Fecha Nacimiento:</label>
+                <input type="date" required class="form-control" id="fechaNacimiento">
+            </div>
+            <div class="col-sm-6">
+                <label for="sexo">Sexo:</label>
+                <select class="form-control" id="sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="numeroDocumento">Nro Documento:</label>
+                <input type="number" class="form-control" id="numeroDocumento" placeholder="Sin puntos(.)">
+            </div>
+            <div class="col-sm-6">
+                <label for="cuilCuit">CUIL/CUIT:</label>
+                <input type="number" class="form-control" id="cuilCuit" placeholder="Sin guiones(-)">
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="estadoCivil">Estado Civil:</label>
+                <select class="form-control" id="estadoCivil">
+                    <option value="Soltero">Soltero/a</option>
+                    <option value="Casado">Casado/a</option>
+                    <option value="Divorciado">Divorciado/a</option>
+                    <option value="Viudo">Viudo/a</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <label for="domicilioTitular">Domicilio:</label>
+                <input type="text" class="form-control" id="domicilioTitular">
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="numeroTelefono">Numero Telefono:</label>
+                <input type="number" class="form-control" id="numeroTelefono">
+            </div>
+            <div class="col-sm-6">
+                <label for="situacionLaboral">Situacion Laboral:</label>
+                <input type="text" class="form-control" id="situacionLaboral">
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="ingresos">Ingresos Mensuales:</label>
+                <input type="number" class="form-control" id="ingresos">
+            </div>
+            <div class="col-sm-6">
+                <label for="cTipoTarjeta">Tipo Tarjeta:</label>
+                <select class="form-control" id="cTipoTarjeta">
+                    <option value="Amex">American Express</option>
+                    <option value="Visa">Master Card</option>
+                    <option value="Master">Visa</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="mostrarDatosConyuge" class="collapse">
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="apellidoConyuge">Apellido Conyuge:</label>
+                    <input type="text" class="form-control" id="apellidoConyuge">
+                </div>
+                <div class="col-sm-6">
+                    <label for="nombreConyuge">Nombre Conyuge:</label>
+                    <input type="text" class="form-control" id="nombreConyuge">
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="fechaNacimientoConyuge">Fecha Nacimiento:</label>
+                    <input type="date" class="form-control" id="fechaNacimientoConyuge">
+                </div>
+                <div class="col-sm-6">
+                    <label for="numeroDocumentoConyuge">Nro Documento:</label>
+                    <input type="number" class="form-control" id="numeroDocumentoConyuge">
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-info" onclick="validarCasado(estadoCivil.value);">Agregar Conyuge</button>
+            </div>
+            <div class="col-sm-6">
+                <input type="submit" class="btn btn-success" value="Confirmar">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
