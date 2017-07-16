@@ -7,28 +7,10 @@ using Lppa.Entities;
 
 namespace Lppa.UI.Website.Controllers
 {
-    public class HomeController : Controller
+    public class SolicitudController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Solicitud()
+        // GET: Solicitud
+        public ActionResult Nueva()
         {
             ViewBag.Message = "Your contact page.";
 
@@ -36,9 +18,9 @@ namespace Lppa.UI.Website.Controllers
         }
 
         [HttpPost]
-        public ActionResult Solicitud(FormCollection Form)
+        public ActionResult Nueva(FormCollection Form)
         {
-            /*ClienteTitular ClienteTitular = new ClienteTitular();
+            ClienteTitular ClienteTitular = new ClienteTitular();
             Lppa.Business.BLLClienteTitular _BLLCliente = new Business.BLLClienteTitular(); 
 
 
@@ -54,8 +36,8 @@ namespace Lppa.UI.Website.Controllers
             //RedirectToAction("DatosAdicionales", "Home");
 
             _BLLCliente.AptoNoAPto(ClienteTitular.DNI);
-            */
-            return RedirectToAction("DatosAdicionales", "Home", Form);//View();
+            
+            return RedirectToAction("DatosAdicionales", "Solicitud", Form);//View();
         }
 
         public ActionResult DatosAdicionales(FormCollection cl)
