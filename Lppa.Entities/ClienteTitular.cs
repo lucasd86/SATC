@@ -21,6 +21,9 @@ namespace Lppa.Entities
         private Sexo _sexo;
         private SituacionLaboral _situacionlaboral;
         private int? _dniconyuge;
+        private string _nombreConyuge;
+        private string _apellidoConyuge;
+        private int? _dniadicional;
 
         [DataMember]
         public string Nombre
@@ -91,7 +94,26 @@ namespace Lppa.Entities
             set { _dniconyuge = value; }
 
         }
-        
-        
+        public string NombreConyuge 
+        {
+            get { return _nombreConyuge ; }
+            set { _nombreConyuge = value; }
+
+        }
+        public string ApellidoConyuge
+        {
+            get { return _apellidoConyuge; }
+            set { _apellidoConyuge = value; }
+
+        }
+
+        public int? DNIAdicional
+        {
+            get { return _dniadicional; }
+            set { _dniadicional = value; }
+
+        }
+
+
     }
 }

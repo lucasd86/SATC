@@ -56,6 +56,7 @@
       <DependentUpon>SATC.tt</DependentUpon>
     </Compile>
     <Compile Include="DALCliente.cs" />
+    <Compile Include="DALTarjetaDeCredito.cs" />
     <Compile Include="Empleado.cs">
       <DependentUpon>SATC.tt</DependentUpon>
     </Compile>
@@ -97,6 +98,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lppa.Entities\Lppa.Entities.csproj">
+      <Project>{571017d9-4207-4b60-a026-d67e2e78be09}</Project>
+      <Name>Lppa.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="SATC.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SATC.edmx</DependentUpon>
@@ -107,12 +114,6 @@
       <DependentUpon>SATC.edmx</DependentUpon>
       <LastGenOutput>SATC.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lppa.Entities\Lppa.Entities.csproj">
-      <Project>{571017d9-4207-4b60-a026-d67e2e78be09}</Project>
-      <Name>Lppa.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

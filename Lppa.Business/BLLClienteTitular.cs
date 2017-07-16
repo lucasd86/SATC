@@ -12,17 +12,24 @@ namespace Lppa.Business
     {
          DALCliente DAL = new DALCliente();
 
-        public void Create(Lppa.Entities.ClienteTitular Cliente) {
-            try { 
-            DAL.Create();
-            }
-            catch
-            {
+        public void CrearClienteTitular(Lppa.Entities.ClienteTitular _clienteEntities) {
 
+            DALCliente _DALCliente = new DALCliente();
+
+            _DALCliente.CrearClienteTitular(Mapper.Map(_clienteEntities));
 
 
             }
-            }
+        public void CrearAdicional(Entities.ClienteTitular _cliente, int? dniTitular)
+        {
+            DALCliente _DALCliente = new DALCliente();
+            
+
+            _DALCliente.CrearClienteTitular(Mapper.Map(_cliente));
+
+            _DALCliente.ActualizarDNIAdicional(dniTitular, _cliente.DNI);
+        }
+
 
     }
 }

@@ -15,11 +15,16 @@
           <Property Name="CUIT" Type="int" Nullable="false" />
           <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
           <Property Name="Domicilio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="EstadoCivil" Type="int" Nullable="false" />
           <Property Name="IngresoMensual" Type="int" />
           <Property Name="Sexo" Type="int" Nullable="false" />
           <Property Name="SituacionLaboral" Type="int" Nullable="false" />
           <Property Name="DNIConyuge" Type="int" />
+          <Property Name="NombreConyuge" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoConyuge" Type="varchar" MaxLength="50" />
+          <Property Name="DNIAdicional" Type="int" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -139,11 +144,16 @@
           <Property Name="CUIT" Type="Int32" Nullable="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EstadoCivil" Type="Int32" Nullable="false" />
           <Property Name="IngresoMensual" Type="Int32" />
           <Property Name="Sexo" Type="Int32" Nullable="false" />
           <Property Name="SituacionLaboral" Type="Int32" Nullable="false" />
           <Property Name="DNIConyuge" Type="Int32" />
+          <Property Name="NombreConyuge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoConyuge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNIAdicional" Type="Int32" />
           <NavigationProperty Name="ClienteTitular1" Relationship="Self.FK_ClienteTitular_ClienteTitular" FromRole="ClienteTitular" ToRole="ClienteTitular1" />
           <NavigationProperty Name="ClienteTitular2" Relationship="Self.FK_ClienteTitular_ClienteTitular" FromRole="ClienteTitular1" ToRole="ClienteTitular" />
           <NavigationProperty Name="TarjetaDeCredito" Relationship="Self.FK_TarjetaDeCredito_ClienteTitular" FromRole="ClienteTitular" ToRole="TarjetaDeCredito" />
@@ -234,7 +244,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SATCconexion" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SATCConexion" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClienteTitular" EntityType="Self.ClienteTitular" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" />
           <EntitySet Name="HistoricoTarjetasDeCredito" EntityType="Self.HistoricoTarjetasDeCredito" />
@@ -261,7 +271,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SATCModelStoreContainer" CdmEntityContainer="SATCconexion">
+        <EntityContainerMapping StorageEntityContainer="SATCModelStoreContainer" CdmEntityContainer="SATCConexion">
           <EntitySetMapping Name="ClienteTitular">
             <EntityTypeMapping TypeName="SATCModel.ClienteTitular">
               <MappingFragment StoreEntitySet="ClienteTitular">
@@ -271,11 +281,16 @@
                 <ScalarProperty Name="CUIT" ColumnName="CUIT" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
                 <ScalarProperty Name="IngresoMensual" ColumnName="IngresoMensual" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="SituacionLaboral" ColumnName="SituacionLaboral" />
                 <ScalarProperty Name="DNIConyuge" ColumnName="DNIConyuge" />
+                <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />
+                <ScalarProperty Name="ApellidoConyuge" ColumnName="ApellidoConyuge" />
+                <ScalarProperty Name="DNIAdicional" ColumnName="DNIAdicional" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

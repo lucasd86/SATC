@@ -13,10 +13,10 @@ namespace Lppa.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SATCconexion : DbContext
+    public partial class SATCConexion : DbContext
     {
-        public SATCconexion()
-            : base("name=SATCconexion")
+        public SATCConexion()
+            : base("name=SATCConexion")
         {
         }
     
