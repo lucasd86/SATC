@@ -27,11 +27,16 @@ namespace Lppa.Data
         public int CUIT { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
         public string Domicilio { get; set; }
+        public int Telefono { get; set; }
+        public string Email { get; set; }
         public int EstadoCivil { get; set; }
         public Nullable<int> IngresoMensual { get; set; }
         public int Sexo { get; set; }
         public int SituacionLaboral { get; set; }
         public Nullable<int> DNIConyuge { get; set; }
+        public string NombreConyuge { get; set; }
+        public string ApellidoConyuge { get; set; }
+        public Nullable<int> DNIAdicional { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClienteTitular> ClienteTitular1 { get; set; }

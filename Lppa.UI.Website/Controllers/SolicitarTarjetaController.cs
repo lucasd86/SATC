@@ -10,18 +10,19 @@ using Lppa.Data;
 
 namespace Lppa.UI.Website.Controllers
 {
-    public class ClienteTitularsController : Controller
+    [Authorize]
+    public class SolicitarTarjetaController : Controller
     {
         private SATCconexion db = new SATCconexion();
 
-        // GET: ClienteTitulars
+        // GET: SolicitarTarjeta
         public ActionResult Index()
         {
             var clienteTitular = db.ClienteTitular.Include(c => c.ClienteTitular2);
             return View(clienteTitular.ToList());
         }
 
-        // GET: ClienteTitulars/Details/5
+        // GET: SolicitarTarjeta/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,14 +37,14 @@ namespace Lppa.UI.Website.Controllers
             return View(clienteTitular);
         }
 
-        // GET: ClienteTitulars/Create
+        // GET: SolicitarTarjeta/Create
         public ActionResult Create()
         {
             ViewBag.DNIConyuge = new SelectList(db.ClienteTitular, "DNI", "Nombre");
             return View();
         }
 
-        // POST: ClienteTitulars/Create
+        // POST: SolicitarTarjeta/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +62,7 @@ namespace Lppa.UI.Website.Controllers
             return View(clienteTitular);
         }
 
-        // GET: ClienteTitulars/Edit/5
+        // GET: SolicitarTarjeta/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,7 +78,7 @@ namespace Lppa.UI.Website.Controllers
             return View(clienteTitular);
         }
 
-        // POST: ClienteTitulars/Edit/5
+        // POST: SolicitarTarjeta/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,7 +95,7 @@ namespace Lppa.UI.Website.Controllers
             return View(clienteTitular);
         }
 
-        // GET: ClienteTitulars/Delete/5
+        // GET: SolicitarTarjeta/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +110,7 @@ namespace Lppa.UI.Website.Controllers
             return View(clienteTitular);
         }
 
-        // POST: ClienteTitulars/Delete/5
+        // POST: SolicitarTarjeta/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lppa.Entities
 {
-    class TarjetaDeCredito
+    public class TarjetaDeCredito
     {
         private int _numero;
         private int _CreditoMaximo;
@@ -22,28 +22,28 @@ namespace Lppa.Entities
         [DataMember]
         public int Numero
         {
-            get;
-            set;
+            get { return _numero; }
+            set { _numero = value; }
         }
         [DataMember]
         public int CreditoMaximo
         {
-            get;
-            set;
+            get { return _CreditoMaximo; }
+            set { _CreditoMaximo = value; }
         }
 
         [DataMember]
         public MarcasTarjetasCredito Marca
         {
-            get;
-            set;
+            get { return _marca; }
+            set { _marca = value; }
         }
        
         [DataMember]
         public TipoDeTarjetaDeCredito Tipo
         {
-            get;
-            set;
+            get { return _tipo; }
+            set { _tipo = value; }
         }
     }
 }

@@ -1,0 +1,125 @@
+﻿
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h4>Registrar nuevo cliente:</h4>
+            <div class="panel panel-default">
+                <div ng-show="!Procesando">
+                    <div class="panel-body form-horizontal payment-form " ng-show="!Procesando && !MostrarInformacion">
+
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">Nombre</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="Nombre cliente" ng-model="nombreTitular" name="apellido" id="apellido" type="text" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-3 control-label">Apellido</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="Apellido cliente" ng-model="apellidoTitular" name="nombre" id="nombre" type="text" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">DNI</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="DNI cliente" ng-model="DNI" name="dni" id="dni" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">CUIT</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="CUIT cliente" ng-model="CUIT" name="cuit" id="cuit" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" class="col-sm-3 control-label">Fecha de nacimiento</label>
+                            <div class="col-sm-9">
+                                <input ng-model="FechaNacimiento" class="form-control" placeholder="Fecha de nacimiento" name="fechanac" id="fechanac" type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">Domicilio</label>
+                            <div class="col-sm-9">
+                                <input ng-model="Domicilio" class="form-control" placeholder="Direccion" name="Direccion" id="Direccion" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">Telefono</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" placeholder="Telefono cliente" name="Telefono" id="Telefono" ng-model="Telefono" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Estado Civil</label>
+                            <div class="col-sm-9">
+                                <select ng-model="Situacion" class="form-control" id="status" name="EstadoCivil">
+                                    <option value="0">Empleado</option>
+                                    <option value="1">Desempleado</option>
+                                    <option value="2">Estudiante</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Sexo</label>
+                            <div class="col-sm-9">
+                                <select ng-model="Sexo" class="form-control" id="status" name="Sexo">
+                                    <option value="0">Femenino</option>
+                                    <option value="1">Masculino</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Tipo Cliente</label>
+                            <div class="col-sm-9">
+                                <input ng-click="verificarEstadoCivil()" ng-model="conyuge" value="false" class="radio-inline" type="radio" name="tipo" value="titular"> Titular<br>
+                                <input ng-click="verificarEstadoCivil()" ng-model="conyuge" value="true" class="radio-inline" type="radio" name="tipo" value="conyuge"> Conyuge<br>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="status" class="col-sm-3 control-label">Banco</label>
+                            <div class="col-sm-9">
+                                <select ng-model="Banco" class="form-control" id="status" name="EstadoCivil">
+                                    <option value="0">HSBC</option>
+                                    <option value="1">Santander Rio</option>
+                                    <option value="2">CITI</option>
+                                    <option value="3">Galicia</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="amount" class="col-sm-3 control-label">Ingresos mensuales aprox.</label>
+                            <div class="col-sm-9">
+                                <input ng-model="Ganancia" class="form-control" placeholder="Ganancia mensual aproximada" name="ganancia" id="ganancia" type="text">
+                            </div>
+                        </div>
+                        
+                        <div ng-show="datosConyuge">
+                            <div class="form-group">
+                                <label for="status" class="col-sm-3 control-label">Dni Titular</label>
+                                <div class="col-sm-9">
+                                    <input ng-model="dniTitular" class="form-control" placeholder="Dni Titular" name="DniTitular" id="DniTitular" type="number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 text-right">
+                                <button ng-click="ProcesarSolicitud()" type="submit" class="btn btn-default preview-add-button">
+                                    <span class="glyphicon glyphicon-plus"></span> Registrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

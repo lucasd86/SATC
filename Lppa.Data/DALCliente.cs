@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Lppa.Data
 {
     public class DALCliente
     {
-        private SATCconexion db = new SATCconexion();
+        private SATCConexion db = new SATCConexion();
 
-        public void Create(ClienteTitular _cliente)
+        public void CrearClienteTitular(ClienteTitular _cliente)
 
         {
             try
@@ -21,7 +22,7 @@ namespace Lppa.Data
             }
             catch (Exception exception)
             {
-                throw exception;
+                throw new Exception("ERROR al crear Cliente DAL", exception);
 
             }
         }
@@ -39,7 +40,7 @@ namespace Lppa.Data
             }
             catch (Exception exception)
             {
-                throw exception;
+                throw new Exception("ERROR al listar cliente DAL", exception);
 
             }
 
@@ -48,13 +49,38 @@ namespace Lppa.Data
 
         }
 
-        public List<ClienteTitular> listar()
+        public List<ClienteTitular> listarTodos()
         {
             List<ClienteTitular> _lista = new List<ClienteTitular>();
             _lista = db.ClienteTitular.ToList();
             return _lista;
 
 
+        }
+
+        public void ActualizarDNIAdicional(int? _dniTitular, int _dni)
+        {
+            try
+            {
+                ClienteTitular _Cliente = new ClienteTitular();
+
+                _Cliente = db.ClienteTitular.Where(c => c.DNI == _dniTitular).FirstOrDefault();
+
+                if (_Cliente != null)
+                {
+                    _Cliente.DNIAdicional = _dni;
+                    db.Entry(_Cliente).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("No se encuentra el cliente / DAL");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR al Agregar Adicional DAL", ex);
+            }
         }
     }
 }
