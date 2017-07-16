@@ -270,6 +270,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Solicitud\Nueva.cshtml" />
     <Content Include="Views\Solicitud\DatosAdicionales.cshtml" />
+    <Content Include="Views\Solicitud\AdicionarTarjeta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
