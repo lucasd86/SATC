@@ -35,7 +35,14 @@ namespace Lppa.Data
 
                 ClienteTitular _cliente = new ClienteTitular();
                 _cliente = db.ClienteTitular.Where(c => c.DNI == _dni).FirstOrDefault();
-                return _cliente;
+                if(_cliente != null)
+                {
+                    return _cliente;
+                }
+                else
+                {
+                    throw new Exception("No se encuentra el Titular / DAL");
+                }
 
             }
             catch (Exception exception)

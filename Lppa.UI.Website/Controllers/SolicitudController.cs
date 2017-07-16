@@ -33,7 +33,7 @@ namespace Lppa.UI.Website.Controllers
             ClienteTitular.Telefono= Convert.ToInt32(Form.Get("numeroTelefono").ToString());
             //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString()); 
             //RedirectToAction("DatosAdicionales", "Home");
-            
+
             ClienteTitular.EstadoCivil = EstadoCivil.Soltero;
             ClienteTitular.IngresosMensualesAprox = Convert.ToInt32(Form.Get("ingresos").ToString());
             ClienteTitular.Sexo = Sexo.Masculino;
@@ -74,6 +74,19 @@ namespace Lppa.UI.Website.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdicionarTarjeta(FormCollection Form)
+        {
+            ClienteTitular ClienteTitular = new ClienteTitular();
+            Lppa.Business.BLLClienteTitular _BLLCliente = new Business.BLLClienteTitular();
+
+            ClienteTitular.DNI= Convert.ToInt32( Form.Get("numeroDocumentoTitular"));
+            ClienteTitular = _BLLCliente.ListarClientePorDNI(ClienteTitular.DNI);
+
+            return View();
+          
         }
 
 

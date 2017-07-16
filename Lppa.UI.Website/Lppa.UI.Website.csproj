@@ -196,8 +196,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,6 +273,12 @@
     <Content Include="Views\Solicitud\Nueva.cshtml" />
     <Content Include="Views\Solicitud\DatosAdicionales.cshtml" />
     <Content Include="Views\Solicitud\AdicionarTarjeta.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +295,10 @@
     <ProjectReference Include="..\Lppa.Business\Lppa.Business.csproj">
       <Project>{95205f00-b1bc-4328-94d2-ebb10d30dbb5}</Project>
       <Name>Lppa.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lppa.Data\Lppa.Data.csproj">
+      <Project>{fb1276b6-d5aa-4795-b33f-034cdec9bdcb}</Project>
+      <Name>Lppa.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lppa.Entities\Lppa.Entities.csproj">
       <Project>{571017d9-4207-4b60-a026-d67e2e78be09}</Project>
