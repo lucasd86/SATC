@@ -4,11 +4,11 @@
 
 <html>
 <head>
+
     <script src="~/Scripts/Validaciones.js"></script>
     <script src="~/Scripts/enviar.js"></script>
 </head>
 <body>
-    <!--Ver esto del FORM -->
     <form action="/Solicitud/Nueva" method="post">
     <div class="container">
         <br>
@@ -31,10 +31,7 @@
             </div>
             <div class="col-sm-6">
                 <label for="sexo">Sexo:</label>
-                <select class="form-control" id="sexo">
-                    <option value="M">Masculino</option>
-                    <option value="F">Femenino</option>
-                </select>
+                @Html.DropDownList("Sexo", EnumHelper.GetSelectList(typeof(Lppa.Entities.Sexo)), "Seleccione Uno", new { @class = "form-control" })                
             </div>
         </div>
 
@@ -54,12 +51,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <label for="estadoCivil">Estado Civil:</label>
-                <select class="form-control" id="estadoCivil">
-                    <option value="Soltero">Soltero/a</option>
-                    <option value="Casado">Casado/a</option>
-                    <option value="Divorciado">Divorciado/a</option>
-                    <option value="Viudo">Viudo/a</option>
-                </select>
+                @Html.DropDownList("estadoCivil", EnumHelper.GetSelectList(typeof(Lppa.Entities.EstadoCivil)), "Seleccione Uno", new { @class = "form-control" , @id="estadoCivil"})
             </div>
             <div class="col-sm-6">
                 <label for="domicilioTitular">Domicilio:</label>
@@ -74,9 +66,9 @@
                 <label for="numeroTelefono">Numero Telefono:</label>
                 @Html.TextBox("numeroTelefono", null, new { placeholder = "53530202", @type = "number", @class = "form-control", required = "required" })
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6">                
                 <label for="situacionLaboral">Situacion Laboral:</label>
-                <input type="text" class="form-control" id="situacionLaboral">
+                @Html.DropDownList("situacionLaboral", EnumHelper.GetSelectList(typeof(Lppa.Entities.SituacionLaboral)), "Seleccione Uno", new { @class = "form-control" })                
             </div>
         </div>
 
@@ -86,13 +78,9 @@
                 <label for="ingresos">Ingresos Mensuales:</label>
                 @Html.TextBox("ingresos", null, new { placeholder = "Aproximados", @type = "number", @class = "form-control", required = "required" })                
             </div>
-            <div class="col-sm-6">                
-                <label for="cTipoTarjeta">Tipo Tarjeta:</label>
-                <select class="form-control" id="cTipoTarjeta">
-                    <option value="Amex">American Express</option>
-                    <option value="Visa">Master Card</option>
-                    <option value="Master">Visa</option>
-                </select>
+            <div class="col-sm-6">
+                <label for="tipoTarjeta">Tipo Tarjeta:</label>
+                @Html.DropDownList("tipoTarjeta", EnumHelper.GetSelectList(typeof(Lppa.Entities.MarcasTarjetasCredito)), "Seleccione Uno", new { @class = "form-control" })
             </div>                      
         </div>
 
@@ -120,8 +108,9 @@
 
         <br>
         <div class="row">
-            <div class="col-sm-6">
-                <button type="button" class="btn btn-info" onclick="validarCasado(estadoCivil.value);">Agregar Conyuge</button>
+            <div class="col-sm-6">                                               
+                <!--<<button type="button" class="btn btn-info" onclick="validarCasado(estadoCivil.value);">Agregar Conyuge</button>-->
+                <button type="button" class="btn btn-info" onclick="pasar();">Agregar Conyuge</button>
             </div>
             <div class="col-sm-6">
                 <input type="submit" class="btn btn-success" value="Confirmar">
