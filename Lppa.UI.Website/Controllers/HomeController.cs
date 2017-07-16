@@ -39,6 +39,8 @@ namespace Lppa.UI.Website.Controllers
         public ActionResult Solicitud(FormCollection Form)
         {
             ClienteTitular ClienteTitular = new ClienteTitular();
+            Lppa.Business.BLLClienteTitular _BLLCliente = new Business.BLLClienteTitular(); 
+
 
             ClienteTitular.Apellido = Form.Get("apellidoTitular").ToString();
             ClienteTitular.Nombre = Form.Get("nombreTitular").ToString();
@@ -49,10 +51,14 @@ namespace Lppa.UI.Website.Controllers
             //ClienteTitular = Form.Get("numeroTelefono").ToString();
             //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString()); 
 
-            RedirectToAction("DatosAdicionales", "Home");
+            //RedirectToAction("DatosAdicionales", "Home");
+
+            _BLLCliente.AptoNoAPto(ClienteTitular.DNI);
+
+            return RedirectToAction("DatosAdicionales", "Home", ClienteTitular);//View();
         }
 
-        public ActionResult DatosAdicionales(ClienteTitular Cliente)
+        public ActionResult DatosAdicionales(ClienteTitular cl)
         {
             ViewBag.Message = "Your contact page.";
 
