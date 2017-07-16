@@ -29,7 +29,7 @@ namespace Lppa.UI.Website.Controllers
             ClienteTitular.FechaNacimiento = Convert.ToDateTime(Form.Get("fechaNacimiento").ToString());
             ClienteTitular.DNI = Convert.ToInt32(Form.Get("numeroDocumento").ToString());
             ClienteTitular.CUIT = Convert.ToInt32(Form.Get("cuilCuit").ToString());
-            ClienteTitular.Domicilio = Form.Get("domicilioTitular").ToString();
+            ClienteTitular.Domicilio = Form.Get("domicilioTitular").ToString();            
             //ClienteTitular = Form.Get("numeroTelefono").ToString();
             //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString()); 
 
