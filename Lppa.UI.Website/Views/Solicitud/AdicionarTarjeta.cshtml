@@ -13,7 +13,7 @@
 </head>
 <body>
     <!--Ver esto del FORM -->
-    <form action="/Solicitud/Nueva" method="post">
+    <form action="/Solicitud/AdicionarTarjeta" method="post">
         <div class="container">
             <br>
             <div class="row">
@@ -22,101 +22,13 @@
                     @Html.TextBox("numeroDocumentoTitular", null, new { placeholder = "Dni Titular", @type = "number", @class = "form-control", required = "required" })                    
                     <br>                    
                     <button type="button" class="btn btn-info" onclick="validarTitular();">Buscar</button>
+                    <input type="submit" class="btn btn-success" value="Confirmar">
                 </div>             
             </div>
-                <div id="mostrarDatosAdicional" class="collapse">
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="apellidoTitular">Apellido:</label>
-                            @Html.TextBox("apellidoTitular", null, new { placeholder = "Apellido Titular", @class = "form-control", required = "required" })
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="nombreTitular">Nombre:</label>
-                            @Html.TextBox("nombreTitular", null, new { placeholder = "Nombre Titular", @class = "form-control", required = "required" })
-                        </div>
-                    </div>
+               
 
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="fechaNacimiento">Fecha Nacimiento:</label>
-                            @Html.TextBox("fechaNacimiento", null, new { placeholder = "DD/MM/AAAA", @type = "date", @class = "form-control", required = "required" })
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="sexo">Sexo:</label>
-                            <select model="Sexo" class="form-control" id="sexo">
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
-                            </select>                            
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="numeroDocumento">Nro Documento:</label>
-                            @Html.TextBox("numeroDocumento", null, new { placeholder = "Sin puntos(.)", @type = "number", @class = "form-control", required = "required" })
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="cuilCuit">CUIL/CUIT:</label>
-                            @Html.TextBox("cuilCuit", null, new { placeholder = "Sin guiones(-)", @type = "number", @class = "form-control", required = "required" })
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="estadoCivil">Estado Civil:</label>
-                            <select class="form-control" id="estadoCivil">
-                                <option value="Soltero">Soltero/a</option>
-                                <option value="Casado">Casado/a</option>
-                                <option value="Divorciado">Divorciado/a</option>
-                                <option value="Viudo">Viudo/a</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="domicilioTitular">Domicilio:</label>
-                            @Html.TextBox("domicilioTitular", null, new { placeholder = "", @class = "form-control", required = "required" })
-                        </div>
-                    </div>
-
-
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="numeroTelefono">Numero Telefono:</label>
-                            @Html.TextBox("numeroTelefono", null, new { placeholder = "53530202", @type = "number", @class = "form-control", required = "required" })
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="situacionLaboral">Situacion Laboral:</label>
-                            <input type="text" class="form-control" id="situacionLaboral">
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="ingresos">Ingresos Mensuales:</label>
-                            @Html.TextBox("ingresos", null, new { placeholder = "Aproximados", @type = "number", @class = "form-control", required = "required" })
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="cTipoTarjeta">Tipo Tarjeta:</label>
-                            <select class="form-control" id="cTipoTarjeta">
-                                <option value="Amex">American Express</option>
-                                <option value="Visa">Master Card</option>
-                                <option value="Master">Visa</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <input type="submit" class="btn btn-success" value="Confirmar">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+           
     </form>
 </body>
 </html>

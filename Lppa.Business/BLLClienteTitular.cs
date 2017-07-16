@@ -30,6 +30,15 @@ namespace Lppa.Business
             _DALCliente.ActualizarDNIAdicional(dniTitular, _cliente.DNI);
         }
 
+        public Entities.ClienteTitular  ListarClientePorDNI(int _dni)
+        
+        {
+            DALCliente _DALCliente = new DALCliente();
+
+            return Mapper.Map(_DALCliente.ListarClientePorDNI(_dni));
+            
+        }
+
         public bool AptoNoAPto(int _dni)
         {
             return true;
