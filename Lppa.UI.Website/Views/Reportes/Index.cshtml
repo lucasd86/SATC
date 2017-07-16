@@ -3,5 +3,38 @@
     ViewBag.Title = "Index";
 }
 
-<h2>ACA VAN LOS REPORTES</h2>
+<h2>Te la creiste ehhhhh</h2>
+<script src="~/Scripts/Highcharts/highcharts.js"></script>
+<body>
+    <div id="container" style="width:100%; height:400px;"></div>
+</body>
 
+<script>
+    $(function () {
+        var myChart = Highcharts.chart('container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+
+</script>
