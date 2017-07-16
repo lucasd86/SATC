@@ -30,13 +30,34 @@ namespace Lppa.UI.Website.Controllers
             ClienteTitular.DNI = Convert.ToInt32(Form.Get("numeroDocumento").ToString());
             ClienteTitular.CUIT = Convert.ToInt32(Form.Get("cuilCuit").ToString());
             ClienteTitular.Domicilio = Form.Get("domicilioTitular").ToString();
-            string _sexo = Request.Form["sexo"];
-            //ClienteTitular = Form.Get("numeroTelefono").ToString();
+            ClienteTitular.Telefono= Convert.ToInt32(Form.Get("numeroTelefono").ToString());
             //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString()); 
-
             //RedirectToAction("DatosAdicionales", "Home");
+            
+            ClienteTitular.EstadoCivil = EstadoCivil.Soltero;
+            ClienteTitular.IngresosMensualesAprox = Convert.ToInt32(Form.Get("ingresos").ToString());
+            ClienteTitular.Sexo = Sexo.Masculino;
+            ClienteTitular.SituacionLaboral = SituacionLaboral.Empleado;
+           
+        
 
-            _BLLCliente.AptoNoAPto(ClienteTitular.DNI);
+
+            if (_BLLCliente.AptoNoAPto(ClienteTitular.DNI))
+            {
+                try{
+
+                    _BLLCliente.CrearClienteTitular(ClienteTitular);
+
+                }
+                catch (Exception ex)
+                    {
+                    throw new Exception("ERROR al crear Cliente / Controller", ex);
+
+                }
+
+ 
+
+            }
             
             return RedirectToAction("DatosAdicionales", "Solicitud", Form);//View();
         }
@@ -54,5 +75,8 @@ namespace Lppa.UI.Website.Controllers
 
             return View();
         }
+
+
+
     }
 }

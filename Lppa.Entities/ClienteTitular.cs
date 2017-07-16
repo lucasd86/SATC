@@ -16,6 +16,7 @@ namespace Lppa.Entities
         private int _cuit;
         private DateTime _fechanacimiento;
         private string _domicilio;
+        private int _telefono;
         private EstadoCivil _estadocivil;
         private int? _ingresomensual;
         private Sexo _sexo;
@@ -61,6 +62,12 @@ namespace Lppa.Entities
         {
             get { return _domicilio; }
             set { _domicilio = value; }
+        }
+        [DataMember]
+        public int Telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
         }
         [DataMember]
         public EstadoCivil EstadoCivil
