@@ -46,5 +46,12 @@ namespace Lppa.UI.Website.Controllers
 
             return View();
         }
+
+        public ActionResult AdicionarTarjeta()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
