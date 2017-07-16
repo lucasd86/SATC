@@ -11,6 +11,10 @@ function validarCasado(texto) {
         $(mostrarDatosConyuge).toggle();
 }
 
+function pasar() {
+        $(mostrarDatosConyuge).toggle();
+}
+
 function validarTitular() {
     $(mostrarDatosAdicional).toggle();
 }

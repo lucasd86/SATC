@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "NuevaAdicional";
+}
+
+<html>
+<head>
+    <script src="~/Scripts/enviar.js"></script>
+</head>
+<body>
+    <form action="/Solicitud/NuevaAdicional" method="post">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="apellidoAdicional">Apellido:</label>
+                    @Html.TextBox("apellidoAdicional", null, new { placeholder = "Apellido Adicional", @class = "form-control", required = "required" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="nombreAdicional">Nombre:</label>
+                    @Html.TextBox("nombreAdicional", null, new { placeholder = "Nombre Adicional", @class = "form-control", required = "required" })
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="fechaNacimiento">Fecha Nacimiento:</label>
+                    @Html.TextBox("fechaNacimiento", null, new { placeholder = "DD/MM/AAAA", @type = "date", @class = "form-control", required = "required" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="sexo">Sexo:</label>
+                    @Html.DropDownList("Sexo", EnumHelper.GetSelectList(typeof(Lppa.Entities.Sexo)), "Seleccione Uno", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="numeroDocumento">Nro Documento:</label>
+                    @Html.TextBox("numeroDocumento", null, new { placeholder = "Sin puntos(.)", @type = "number", @class = "form-control", required = "required" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="cuilCuit">CUIL/CUIT:</label>
+                    @Html.TextBox("cuilCuit", null, new { placeholder = "Sin guiones(-)", @type = "number", @class = "form-control", required = "required" })
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="estadoCivil">Estado Civil:</label>
+                    @Html.DropDownList("estadoCivil", EnumHelper.GetSelectList(typeof(Lppa.Entities.EstadoCivil)), "Seleccione Uno", new { @class = "form-control", @id = "estadoCivil" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="domicilioAdicional">Domicilio:</label>
+                    @Html.TextBox("domicilioAdicional", null, new { placeholder = "", @class = "form-control", required = "required" })
+                </div>
+            </div>
+
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="numeroTelefono">Numero Telefono:</label>
+                    @Html.TextBox("numeroTelefono", null, new { placeholder = "53530202", @type = "number", @class = "form-control", required = "required" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="situacionLaboral">Situacion Laboral:</label>
+                    @Html.DropDownList("situacionLaboral", EnumHelper.GetSelectList(typeof(Lppa.Entities.SituacionLaboral)), "Seleccione Uno", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="ingresos">Ingresos Mensuales:</label>
+                    @Html.TextBox("ingresos", null, new { placeholder = "Aproximados", @type = "number", @class = "form-control", required = "required" })
+                </div>
+                <div class="col-sm-6">
+                    <label for="tipoTarjeta">Tipo Tarjeta:</label>
+                    @Html.DropDownList("tipoTarjeta", EnumHelper.GetSelectList(typeof(Lppa.Entities.MarcasTarjetasCredito)), "Seleccione Uno", new { @class = "form-control" })
+                </div>
+            </div>            
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="submit" class="btn btn-success" value="Confirmar Adicional">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

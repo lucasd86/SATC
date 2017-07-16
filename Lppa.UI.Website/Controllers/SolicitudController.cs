@@ -21,6 +21,8 @@ namespace Lppa.UI.Website.Controllers
         public ActionResult Nueva(FormCollection Form)
         {
             ClienteTitular ClienteTitular = new ClienteTitular();
+            TarjetaDeCredito TarjetaCredito = new TarjetaDeCredito();
+
             Lppa.Business.BLLClienteTitular _BLLCliente = new Business.BLLClienteTitular(); 
 
 
@@ -30,17 +32,16 @@ namespace Lppa.UI.Website.Controllers
             ClienteTitular.DNI = Convert.ToInt32(Form.Get("numeroDocumento").ToString());
             ClienteTitular.CUIT = Convert.ToInt32(Form.Get("cuilCuit").ToString());
             ClienteTitular.Domicilio = Form.Get("domicilioTitular").ToString();
-            ClienteTitular.Telefono= Convert.ToInt32(Form.Get("numeroTelefono").ToString());
-            //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString()); 
-            //RedirectToAction("DatosAdicionales", "Home");
-
-            ClienteTitular.EstadoCivil = EstadoCivil.Soltero;
+            ClienteTitular.Telefono= Convert.ToInt32(Form.Get("numeroTelefono").ToString());             
+            ClienteTitular.EstadoCivil = (EstadoCivil)Convert.ToInt32(Form.Get("estadoCivil").ToString());
             ClienteTitular.IngresosMensualesAprox = Convert.ToInt32(Form.Get("ingresos").ToString());
-            ClienteTitular.Sexo = Sexo.Masculino;
-            ClienteTitular.SituacionLaboral = SituacionLaboral.Empleado;
-           
-        
+            ClienteTitular.Sexo = (Sexo)Convert.ToInt32(Form.Get("Sexo").ToString()); 
+            ClienteTitular.SituacionLaboral = (SituacionLaboral)Convert.ToInt32(Form.Get("situacionLaboral").ToString());
 
+            //ClienteTitular.DNIConyuge = Convert.ToInt32(Form.Get("numeroDocumentoCon").ToString());
+            //ClienteTitular.NombreConyuge = Convert.ToInt32(Form.Get("nombreConyuge").ToString());
+            //ClienteTitular.ApellidoConyuge = Convert.ToInt32(Form.Get("apellidoConyuge").ToString());
+            TarjetaCredito.Marca = (MarcasTarjetasCredito)Convert.ToInt32(Form.Get("tipoTarjeta").ToString());
 
             if (_BLLCliente.AptoNoAPto(ClienteTitular.DNI))
             {
@@ -87,6 +88,28 @@ namespace Lppa.UI.Website.Controllers
 
             return View();
           
+        }
+
+        public ActionResult NuevaAdicional()
+        {
+            ViewBag.Message = "Nueva Adicional";
+
+            return View();
+        }
+
+       /* public ActionResult NuevaAdicional(int dniTitular)
+        {
+            ViewBag.Message = "Nueva Adicional";
+
+            return View();
+        }
+        */
+        [HttpPost]
+        public ActionResult NuevaAdicional(FormCollection Collection)
+        {
+            ViewBag.Message = "Nueva Adicional Post";
+        
+            return View();
         }
 
 
