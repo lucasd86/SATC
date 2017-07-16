@@ -9,17 +9,17 @@
 </head>
 <body>
     <!--Ver esto del FORM -->
-    <!--<form action="/AltaSolicitud/Create" method="post">-->
+    <form action="/Home/Solicitud" method="post">
     <div class="container">
         <br>
         <div class="row">
             <div class="col-sm-6">
                 <label for="apellidoTitular">Apellido:</label>
-                <input type="text" required class="form-control" id="apellidoTitular">
+                @Html.TextBox("apellidoTitular", null, new { placeholder = "Apellido Titular", @class = "form-control" , required = "required" })                                
             </div>
             <div class="col-sm-6">
                 <label for="nombreTitular">Nombre:</label>
-                <input type="text" required class="form-control" id="nombreTitular">
+                @Html.TextBox("nombreTitular", null, new { placeholder = "Nombre Titular", @class = "form-control", required = "required" })                                
             </div>
         </div>
 
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <label for="fechaNacimiento">Fecha Nacimiento:</label>
-                <input type="date" required class="form-control" id="fechaNacimiento">
+                @Html.TextBox("fechaNacimiento", null, new { placeholder = "DD/MM/AAAA", @type = "date", @class = "form-control", required = "required" })              
             </div>
             <div class="col-sm-6">
                 <label for="sexo">Sexo:</label>
@@ -42,11 +42,11 @@
         <div class="row">
             <div class="col-sm-6">
                 <label for="numeroDocumento">Nro Documento:</label>
-                <input type="number" class="form-control" id="numeroDocumento" placeholder="Sin puntos(.)">
+                @Html.TextBox("numeroDocumento",  null, new { placeholder = "Sin puntos(.)", @type = "number", @class = "form-control", required = "required" })                
             </div>
             <div class="col-sm-6">
                 <label for="cuilCuit">CUIL/CUIT:</label>
-                <input type="number" class="form-control" id="cuilCuit" placeholder="Sin guiones(-)">
+                @Html.TextBox("cuilCuit", null, new { placeholder = "Sin guiones(-)", @type = "number", @class = "form-control", required = "required" })                
             </div>
         </div>
 
@@ -63,15 +63,16 @@
             </div>
             <div class="col-sm-6">
                 <label for="domicilioTitular">Domicilio:</label>
-                <input type="text" class="form-control" id="domicilioTitular">
+                @Html.TextBox("domicilioTitular", null, new { placeholder = "",  @class = "form-control", required = "required" })                
             </div>
         </div>
+       
 
         <br>
         <div class="row">
             <div class="col-sm-6">
                 <label for="numeroTelefono">Numero Telefono:</label>
-                <input type="number" class="form-control" id="numeroTelefono">
+                @Html.TextBox("numeroTelefono", null, new { placeholder = "53530202", @type = "number", @class = "form-control", required = "required" })
             </div>
             <div class="col-sm-6">
                 <label for="situacionLaboral">Situacion Laboral:</label>
@@ -83,16 +84,16 @@
         <div class="row">
             <div class="col-sm-6">
                 <label for="ingresos">Ingresos Mensuales:</label>
-                <input type="number" class="form-control" id="ingresos">
+                @Html.TextBox("ingresos", null, new { placeholder = "Aproximados", @type = "number", @class = "form-control", required = "required" })                
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6">                
                 <label for="cTipoTarjeta">Tipo Tarjeta:</label>
                 <select class="form-control" id="cTipoTarjeta">
                     <option value="Amex">American Express</option>
                     <option value="Visa">Master Card</option>
                     <option value="Master">Visa</option>
                 </select>
-            </div>
+            </div>                      
         </div>
 
         <div id="mostrarDatosConyuge" class="collapse">
@@ -100,23 +101,19 @@
             <div class="row">
                 <div class="col-sm-6">
                     <label for="apellidoConyuge">Apellido Conyuge:</label>
-                    <input type="text" class="form-control" id="apellidoConyuge">
+                    @Html.TextBox("apellidoConyuge", null, new { placeholder = "Apellido Conyuge", @class = "form-control" })                                        
                 </div>
                 <div class="col-sm-6">
                     <label for="nombreConyuge">Nombre Conyuge:</label>
-                    <input type="text" class="form-control" id="nombreConyuge">
+                    @Html.TextBox("nombreConyuge", null, new { placeholder = "Nombre Conyuge", @class = "form-control" })                    
                 </div>
             </div>
 
             <br>
-            <div class="row">
+            <div class="row">   
                 <div class="col-sm-6">
-                    <label for="fechaNacimientoConyuge">Fecha Nacimiento:</label>
-                    <input type="date" class="form-control" id="fechaNacimientoConyuge">
-                </div>
-                <div class="col-sm-6">
-                    <label for="numeroDocumentoConyuge">Nro Documento:</label>
-                    <input type="number" class="form-control" id="numeroDocumentoConyuge">
+                    <label for="numeroDocumentoCon">Nro Documento:</label>
+                    @Html.TextBox("numeroDocumentoCon", null, new { placeholder = "Sin puntos(.)", @type = "number", @class = "form-control"})
                 </div>
             </div>
         </div>
@@ -131,5 +128,6 @@
             </div>
         </div>
     </div>
+  </form>
 </body>
 </html>

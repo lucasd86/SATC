@@ -8,7 +8,7 @@ using Lppa.Entities;
 
 namespace Lppa.Business
 {
-    class BLLClienteTitular
+    public class BLLClienteTitular
     {
          DALCliente DAL = new DALCliente();
 
@@ -28,6 +28,11 @@ namespace Lppa.Business
             _DALCliente.CrearClienteTitular(Mapper.Map(_cliente));
 
             _DALCliente.ActualizarDNIAdicional(dniTitular, _cliente.DNI);
+        }
+
+        public bool AptoNoAPto(int _dni)
+        {
+            return true;
         }
 
 
