@@ -14,7 +14,7 @@ namespace Lppa.Entities
         private MarcasTarjetasCredito _marca;
         private TipoDeTarjetaDeCredito _tipo;
 
-        public Lppa.Entities.TarjetaDeCredito _extension;
+        
         public Lppa.Entities.ClienteTitular _cliente;
         public Lppa.Entities.EstadoTarjeta _estadoTarjeta;
 

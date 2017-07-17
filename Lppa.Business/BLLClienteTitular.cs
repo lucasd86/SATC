@@ -38,6 +38,19 @@ namespace Lppa.Business
             return Mapper.Map(_DALCliente.ListarClientePorDNI(_dni));
             
         }
+        public bool Existe(int _dni)
+        {
+            DALCliente _DALCliente = new DALCliente();
+            if (_DALCliente.Existe(_dni))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+              
+           
+        }
 
         public bool AptoNoAPto(int _dni)
         {

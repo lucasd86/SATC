@@ -19,10 +19,12 @@
             <div class="row">
                 <div class="col-sm-6">
                     <label for="numeroDocumentoTitular">Ingrese Dni Titular:</label>
-                    @Html.TextBox("numeroDocumentoTitular", null, new { placeholder = "Dni Titular", @type = "number", @class = "form-control", required = "required" })                    
+                    @Html.TextBox("numeroDocumentoTitular", null, new { placeholder = "Dni Titular", @type = "number", @class = "form-control", required = "required" })
+                    @Html.TextBox("mensaje", null, new { placeholder = "", @type = "text", @class = "form-control", @readonly="readonly" })
+                                        
                     <br>                    
-                    <button type="button" class="btn btn-info" onclick="validarTitular();">Buscar</button>
-                    <input type="submit" class="btn btn-success" value="Confirmar">
+                    
+                    <input type="submit" class="btn btn-success" value="Buscar">
                 </div>             
             </div>
                

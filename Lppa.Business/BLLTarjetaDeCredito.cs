@@ -7,7 +7,7 @@ using Lppa.Entities;
 
 namespace Lppa.Business
 {
-    class BLLTarjetaDeCredito
+    public class BLLTarjetaDeCredito
     {
         public void CrearTarjetaDeCredito(TarjetaDeCredito _tarjeta, int _dni)
         {

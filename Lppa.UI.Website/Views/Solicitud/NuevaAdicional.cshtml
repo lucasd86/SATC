@@ -11,6 +11,7 @@
     <form action="/Solicitud/NuevaAdicional" method="post">
         <div class="container">
             <br>
+            @Html.TextBox("titular", null, new { placeholder = "", @type = "text", @class = "form-control", @readonly = "readonly" })
             <div class="row">
                 <div class="col-sm-6">
                     <label for="apellidoAdicional">Apellido:</label>

@@ -61,7 +61,6 @@ namespace Lppa.Business
             _tarjetaDAL.ClienteTitular = Map(_tarjetaEntities._cliente);
             _tarjetaDAL.DNICliente = _tarjetaEntities._cliente.DNI;
             _tarjetaDAL.Estado = (int)_tarjetaEntities._estadoTarjeta;
-            _tarjetaDAL.Extension = _tarjetaEntities._extension == null ? 1 : 2;
             _tarjetaDAL.Marca = (int)_tarjetaEntities.Marca;
             _tarjetaDAL.NumeroTarjeta = (int)new Random().Next();
             _tarjetaDAL.SaldoMaximo = _tarjetaEntities.CreditoMaximo;
@@ -80,7 +79,6 @@ namespace Lppa.Business
             _tarjetaEntities.CreditoMaximo= _tarjetaDAL.SaldoMaximo;
             _tarjetaEntities.Tipo = (Entities.TipoDeTarjetaDeCredito) _tarjetaDAL.Tipo;
             _tarjetaEntities._estadoTarjeta = (Entities.EstadoTarjeta) _tarjetaDAL.Estado;
-            _tarjetaEntities._extension = null;
 
 
             return _tarjetaEntities;

@@ -89,6 +89,35 @@ namespace Lppa.Data
                 throw new Exception("ERROR al Agregar Adicional DAL", ex);
             }
         }
+
+        public bool Existe(int _dni)
+
+        {
+            try
+            {
+
+                ClienteTitular _cliente = new ClienteTitular();
+                _cliente = db.ClienteTitular.Where(c => c.DNI == _dni).FirstOrDefault();
+                if (_cliente != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("ERROR EXISTE cliente DAL", exception);
+
+            }
+
+
+
+
+        }
     }
 }
 
