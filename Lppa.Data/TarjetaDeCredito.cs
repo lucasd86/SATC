@@ -18,22 +18,17 @@ namespace Lppa.Data
         public TarjetaDeCredito()
         {
             this.HistoricoTarjetasDeCredito = new HashSet<HistoricoTarjetasDeCredito>();
-            this.TarjetaDeCredito1 = new HashSet<TarjetaDeCredito>();
         }
     
         public int NumeroTarjeta { get; set; }
         public int Marca { get; set; }
         public int SaldoMaximo { get; set; }
         public int Tipo { get; set; }
-        public Nullable<int> Extension { get; set; }
         public int DNICliente { get; set; }
         public int Estado { get; set; }
     
         public virtual ClienteTitular ClienteTitular { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistoricoTarjetasDeCredito> HistoricoTarjetasDeCredito { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TarjetaDeCredito> TarjetaDeCredito1 { get; set; }
-        public virtual TarjetaDeCredito TarjetaDeCredito2 { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace Lppa.UI.Website.Controllers
         // GET: Tarjetas
         public ActionResult Index()
         {
-            var tarjetaDeCredito = db.TarjetaDeCredito.Include(t => t.ClienteTitular).Include(t => t.TarjetaDeCredito2);
+            var tarjetaDeCredito = db.TarjetaDeCredito.Include(t => t.ClienteTitular);
             return View(tarjetaDeCredito.ToList());
         }
 

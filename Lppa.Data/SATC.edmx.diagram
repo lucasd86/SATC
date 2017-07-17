@@ -4,15 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dbed2470dd844f8b98d86563b2e40568" Name="Diagram1">
-        <EntityTypeShape EntityType="SATCModel.ClienteTitular" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="12f8c291fc3d43cfb1ee61f8098f5edb" Name="Diagram1">
+        <EntityTypeShape EntityType="SATCModel.ClienteTitular" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SATCModel.Empleado" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATCModel.HistoricoTarjetasDeCredito" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATCModel.TarjetaDeCredito" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATCModel.HistoricoTarjetasDeCredito" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATCModel.TarjetaDeCredito" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <AssociationConnector Association="SATCModel.FK_ClienteTitular_ClienteTitular" ManuallyRouted="false" />
         <AssociationConnector Association="SATCModel.FK_TarjetaDeCredito_ClienteTitular" ManuallyRouted="false" />
         <AssociationConnector Association="SATCModel.FK_HistoricoTarjetasDeCredito_TarjetaDeCredito" ManuallyRouted="false" />
-        <AssociationConnector Association="SATCModel.FK_TarjetaDeCredito_TarjetaDeCredito" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

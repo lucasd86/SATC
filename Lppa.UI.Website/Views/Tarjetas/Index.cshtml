@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -26,9 +23,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ClienteTitular.Nombre)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TarjetaDeCredito2.NumeroTarjeta)
-        </th>
+  
         <th></th>
     </tr>
 
@@ -49,14 +44,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.ClienteTitular.Nombre)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TarjetaDeCredito2.NumeroTarjeta)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NumeroTarjeta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NumeroTarjeta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NumeroTarjeta })
-        </td>
+        
+     
     </tr>
 }
 

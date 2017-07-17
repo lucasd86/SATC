@@ -9,7 +9,7 @@ namespace Lppa.Data
 {
     public class DALCliente
     {
-        private SATCConexion db = new SATCConexion();
+        private SATCConexion   db = new SATCConexion();
 
         public void CrearClienteTitular(ClienteTitular _cliente)
 

@@ -37,6 +37,7 @@ namespace Lppa.Data
         public string NombreConyuge { get; set; }
         public string ApellidoConyuge { get; set; }
         public Nullable<int> DNIAdicional { get; set; }
+        public byte[] FOTO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClienteTitular> ClienteTitular1 { get; set; }

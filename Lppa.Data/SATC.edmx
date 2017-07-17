@@ -25,6 +25,7 @@
           <Property Name="NombreConyuge" Type="varchar" MaxLength="50" />
           <Property Name="ApellidoConyuge" Type="varchar" MaxLength="50" />
           <Property Name="DNIAdicional" Type="int" />
+          <Property Name="FOTO" Type="image" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -55,7 +56,6 @@
           <Property Name="Marca" Type="int" Nullable="false" />
           <Property Name="SaldoMaximo" Type="int" Nullable="false" />
           <Property Name="Tipo" Type="int" Nullable="false" />
-          <Property Name="Extension" Type="int" />
           <Property Name="DNICliente" Type="int" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
         </EntityType>
@@ -95,18 +95,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TarjetaDeCredito_TarjetaDeCredito">
-          <End Role="TarjetaDeCredito" Type="Self.TarjetaDeCredito" Multiplicity="0..1" />
-          <End Role="TarjetaDeCredito1" Type="Self.TarjetaDeCredito" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TarjetaDeCredito">
-              <PropertyRef Name="NumeroTarjeta" />
-            </Principal>
-            <Dependent Role="TarjetaDeCredito1">
-              <PropertyRef Name="Extension" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SATCModelStoreContainer">
           <EntitySet Name="ClienteTitular" EntityType="Self.ClienteTitular" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
@@ -123,10 +111,6 @@
           <AssociationSet Name="FK_TarjetaDeCredito_ClienteTitular" Association="Self.FK_TarjetaDeCredito_ClienteTitular">
             <End Role="ClienteTitular" EntitySet="ClienteTitular" />
             <End Role="TarjetaDeCredito" EntitySet="TarjetaDeCredito" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TarjetaDeCredito_TarjetaDeCredito" Association="Self.FK_TarjetaDeCredito_TarjetaDeCredito">
-            <End Role="TarjetaDeCredito" EntitySet="TarjetaDeCredito" />
-            <End Role="TarjetaDeCredito1" EntitySet="TarjetaDeCredito" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -154,6 +138,7 @@
           <Property Name="NombreConyuge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ApellidoConyuge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DNIAdicional" Type="Int32" />
+          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ClienteTitular1" Relationship="Self.FK_ClienteTitular_ClienteTitular" FromRole="ClienteTitular" ToRole="ClienteTitular1" />
           <NavigationProperty Name="ClienteTitular2" Relationship="Self.FK_ClienteTitular_ClienteTitular" FromRole="ClienteTitular1" ToRole="ClienteTitular" />
           <NavigationProperty Name="TarjetaDeCredito" Relationship="Self.FK_TarjetaDeCredito_ClienteTitular" FromRole="ClienteTitular" ToRole="TarjetaDeCredito" />
@@ -188,13 +173,10 @@
           <Property Name="Marca" Type="Int32" Nullable="false" />
           <Property Name="SaldoMaximo" Type="Int32" Nullable="false" />
           <Property Name="Tipo" Type="Int32" Nullable="false" />
-          <Property Name="Extension" Type="Int32" />
           <Property Name="DNICliente" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ClienteTitular" Relationship="Self.FK_TarjetaDeCredito_ClienteTitular" FromRole="TarjetaDeCredito" ToRole="ClienteTitular" />
           <NavigationProperty Name="HistoricoTarjetasDeCredito" Relationship="Self.FK_HistoricoTarjetasDeCredito_TarjetaDeCredito" FromRole="TarjetaDeCredito" ToRole="HistoricoTarjetasDeCredito" />
-          <NavigationProperty Name="TarjetaDeCredito1" Relationship="Self.FK_TarjetaDeCredito_TarjetaDeCredito" FromRole="TarjetaDeCredito" ToRole="TarjetaDeCredito1" />
-          <NavigationProperty Name="TarjetaDeCredito2" Relationship="Self.FK_TarjetaDeCredito_TarjetaDeCredito" FromRole="TarjetaDeCredito1" ToRole="TarjetaDeCredito" />
         </EntityType>
         <Association Name="FK_ClienteTitular_ClienteTitular">
           <End Role="ClienteTitular" Type="Self.ClienteTitular" Multiplicity="0..1" />
@@ -232,18 +214,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TarjetaDeCredito_TarjetaDeCredito">
-          <End Role="TarjetaDeCredito" Type="Self.TarjetaDeCredito" Multiplicity="0..1" />
-          <End Role="TarjetaDeCredito1" Type="Self.TarjetaDeCredito" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TarjetaDeCredito">
-              <PropertyRef Name="NumeroTarjeta" />
-            </Principal>
-            <Dependent Role="TarjetaDeCredito1">
-              <PropertyRef Name="Extension" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SATCConexion" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClienteTitular" EntityType="Self.ClienteTitular" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" />
@@ -260,10 +230,6 @@
           <AssociationSet Name="FK_HistoricoTarjetasDeCredito_TarjetaDeCredito" Association="Self.FK_HistoricoTarjetasDeCredito_TarjetaDeCredito">
             <End Role="TarjetaDeCredito" EntitySet="TarjetaDeCredito" />
             <End Role="HistoricoTarjetasDeCredito" EntitySet="HistoricoTarjetasDeCredito" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TarjetaDeCredito_TarjetaDeCredito" Association="Self.FK_TarjetaDeCredito_TarjetaDeCredito">
-            <End Role="TarjetaDeCredito" EntitySet="TarjetaDeCredito" />
-            <End Role="TarjetaDeCredito1" EntitySet="TarjetaDeCredito" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -291,6 +257,7 @@
                 <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />
                 <ScalarProperty Name="ApellidoConyuge" ColumnName="ApellidoConyuge" />
                 <ScalarProperty Name="DNIAdicional" ColumnName="DNIAdicional" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -322,7 +289,6 @@
                 <ScalarProperty Name="Marca" ColumnName="Marca" />
                 <ScalarProperty Name="SaldoMaximo" ColumnName="SaldoMaximo" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Extension" ColumnName="Extension" />
                 <ScalarProperty Name="DNICliente" ColumnName="DNICliente" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
