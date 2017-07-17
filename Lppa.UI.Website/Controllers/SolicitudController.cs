@@ -180,7 +180,7 @@ namespace Lppa.UI.Website.Controllers
         { 
             ViewBag.Message = "Your contact page.";
 
-            return RedirectToAction("Index", "Clientes");
+            return RedirectToAction("Index", "Tarjetas");
 
 
         }
