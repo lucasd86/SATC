@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lppa.Data.TarjetaDeCredito>
+﻿@model List<Lppa.UI.Website.Models.TarjetaModel>
 
 @{
     ViewBag.Title = "Index";
@@ -9,26 +9,29 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Marca)
+            Numero
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SaldoMaximo)
+            Marca
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tipo)
+            Saldo Maximo
+        <th>
+            Tipo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Estado)
+           Estado
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClienteTitular.Nombre)
-        </th>
+        
   
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroTarjeta)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Marca)
         </td>
@@ -41,9 +44,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClienteTitular.Nombre)
-        </td>
+        
+
         
      
     </tr>
