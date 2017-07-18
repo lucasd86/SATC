@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lppa.Data.ClienteTitular>
+﻿@model List<Lppa.UI.Website.Models.ClienteModel>
 
 @{
     ViewBag.Title = "Listado de Clientes";
@@ -10,49 +10,49 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellido)
+           Apellido
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CUIT)
+            CUIT
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
+            FechaNacimiento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Domicilio)
+            Domicilio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefono)
+            Telefono
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EstadoCivil)
+            EstadoCivil
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IngresoMensual)
+           IngresoMensual
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sexo)
+            Sexo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SituacionLaboral)
+            SituacionLaboral
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreConyuge)
+            NombreConyuge
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApellidoConyuge)
+            ApellidoConyuge
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DNIAdicional)
+            DNIAdicional
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClienteTitular2.Nombre)
+           Nombre2
         </th>
         <th></th>
     </tr>
@@ -102,7 +102,7 @@
             @Html.DisplayFor(modelItem => item.DNIAdicional)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ClienteTitular2.Nombre)
+            @Html.DisplayFor(modelItem => item.DNIAdicional)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DNI }) |
@@ -113,3 +113,5 @@
 }
 
 </table>
+
+

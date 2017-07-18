@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.IO;
+using System.Drawing;
 
 namespace Lppa.Data
 {
@@ -114,9 +116,48 @@ namespace Lppa.Data
 
             }
 
+        }
+        public void ActualizarFoto(Lppa.Entities.ClienteTitular _ClienteEntities)
+        {
+            ClienteTitular Cliente = new ClienteTitular();
+            Cliente = db.ClienteTitular.Where(c => c.DNI == _ClienteEntities.DNI).FirstOrDefault();
+          
+
+            if (Cliente != null)
+            {
+
+                Cliente.FOTO = _ClienteEntities.Foto;
+                db.Entry(Cliente).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+            }
+            else
+            {
+                throw new Exception("No se puede actualizar la foto / DAL");
+            }
 
 
 
+        }
+        public void ObtenerFoto(Lppa.Entities.ClienteTitular _ClienteEntities)
+        {
+
+        }
+
+        public byte[] imageToByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+
+        //Byte array to photo
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
     }
 }

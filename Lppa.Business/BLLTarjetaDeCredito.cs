@@ -35,5 +35,31 @@ namespace Lppa.Business
 
         }
 
+        public void ImprimirTarjeta(TarjetaDeCredito _tarjetaEntities) { 
+
+
+            TarjetaImpresion _tarjetaIMP = new TarjetaImpresion(_tarjetaEntities);
+            TarjetaPDF _tarjetaPDF = new TarjetaPDF();
+            if (_tarjetaIMP.Marca == MarcasTarjetasCredito.Visa)
+            {
+
+                _tarjetaPDF.TarjetaVisa(_tarjetaIMP);
+            }
+            else if (_tarjetaIMP.Marca == MarcasTarjetasCredito.MasterCard)
+            {
+
+                _tarjetaPDF.TarjetaMaster(_tarjetaIMP);
+
+            }
+            else if (_tarjetaIMP.Marca == MarcasTarjetasCredito.AmericanExpress)
+            {
+                _tarjetaPDF.TarjetaAmerican(_tarjetaIMP);
+            }
+            else
+                throw new Exception("ERROR al crear Tarjeta PDF");
+            
+
+        }
+
     }
 }

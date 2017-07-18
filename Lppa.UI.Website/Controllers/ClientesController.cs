@@ -18,7 +18,29 @@ namespace Lppa.UI.Website.Controllers
         public ActionResult Index()
         {
             var clienteTitular = db.ClienteTitular.Include(c => c.ClienteTitular2);
-            return View(clienteTitular.ToList());
+            List<Lppa.UI.Website.Models.ClienteModel> lista = new List<Lppa.UI.Website.Models.ClienteModel>();
+            foreach (var item in clienteTitular){
+                var cliente = new Lppa.UI.Website.Models.ClienteModel();
+                cliente.Nombre = item.Nombre;
+                cliente.Apellido = item.Apellido;
+                cliente.DNI = item.DNI;
+                cliente.CUIT = item.CUIT;
+                cliente.FechaNacimiento = item.FechaNacimiento;
+                cliente.Domicilio = item.Domicilio;
+                cliente.Telefono = item.Telefono;
+                cliente.EstadoCivil = PasarEstadoCivil(item.EstadoCivil);
+                cliente.IngresoMensual = item.IngresoMensual;
+                cliente.Sexo = PasarSexo(item.Sexo);
+                cliente.DNIConyuge = item.DNIConyuge;
+                cliente.NombreConyuge = item.NombreConyuge;
+                cliente.ApellidoConyuge = item.ApellidoConyuge;
+                cliente.SituacionLaboral = PasarSituacionLaboral(item.SituacionLaboral);
+
+                lista.Add(cliente);
+            }
+          
+
+            return View(lista);
         }
 
         // GET: Clientes/Details/5
@@ -127,6 +149,24 @@ namespace Lppa.UI.Website.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public string PasarSituacionLaboral(int i)
+        {
+
+            return ((Lppa.Entities.SituacionLaboral)i).ToString();
+
+        }
+
+        public string PasarSexo(int i) {
+
+            return ((Lppa.Entities.Sexo)i).ToString();
+
+        }
+        public string PasarEstadoCivil(int i) {
+
+            return  ((Lppa.Entities.EstadoCivil)i).ToString();
+
+
         }
     }
 }
